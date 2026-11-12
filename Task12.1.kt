@@ -22,7 +22,7 @@ fun describeValue(value: Any): String =
         is Int -> "Число: $value (квадрат: ${value * value})"
         is Double -> "Дробное: $value"
         is Boolean -> "Булево: $value"
-        is List<*> -> "Список из ${value.size} элементов"
+        is List<*> -> "Список из ${value.size} элементов" // * — потому что тип элементов неизвестен (List<Int> не является List<Any>)
         else -> "Неизвестный тип: $value"
     }
 

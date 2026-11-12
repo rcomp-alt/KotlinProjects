@@ -34,7 +34,6 @@ class Library {
         println("Книга '${book.title}' выдана")
     }
 
-
     fun returnBook(title: String) {
         val book = books.find { it.title == title }
         if (book == null) {
@@ -58,11 +57,9 @@ class Library {
     }
 
 
-    fun findBooksByAuthor(author: String): List<Book> {
-        val booksList = books.filter { it.author == author }
-        if (booksList.isNotEmpty()) return booksList
-        else throw NoSuchElementException("Книги автора '$author' не найдены")
-    }
+    fun findBooksByAuthor(author: String): List<Book> =
+    books.filter { it.author == author }
+        .ifEmpty { throw NoSuchElementException("Книги автора '$author' не найдены") }
 }
 
 fun main() {

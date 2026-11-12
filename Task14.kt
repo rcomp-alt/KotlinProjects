@@ -1,12 +1,3 @@
-/*Задание 14.3 (последнее в Дне 14)
-
-processAge(input: String?):
-
-    Вызывает validateAge(input)
-
-    Если успех → println("Возраст: $age (${describeAge(age)})")
-
-    Если исключение → println("Ошибка: ${e.message}")*/
 
 fun validateAge(input: String?): Int {
     val trimmed = input?.trim() ?: throw IllegalArgumentException("Возраст не указан")
@@ -26,19 +17,19 @@ fun describeAge(age: Int): String =
         else -> throw IllegalArgumentException("Возраст не может быть отрицательным или больше 150")
     }
 
-fun processAge(input: String?){
+fun processAge(input: String?) {
     try {
-            val age = validateAge(input)
-            println("Возраст: $age (${describeAge(age)})")
-        } catch (e:Exception){
-println("Ошибка: ${e.message}")
-}
+        val age = validateAge(input)
+        println("Возраст: $age (${describeAge(age)})")
+    } catch (e: Exception) {
+        println("Ошибка: ${e.message}")
     }
+}
 
 fun main() {
-    processAge("25")    // Возраст: 25 (Взрослый)
-    processAge("5")     // Возраст: 5 (Ребёнок)
-    processAge(null)    // Ошибка: Возраст не указан
-    processAge("abc")   // Ошибка: 'abc' не является числом
-    processAge("200")   // Ошибка: Возраст не может быть больше 150
+    processAge("25") // Возраст: 25 (Взрослый)
+    processAge("5") // Возраст: 5 (Ребёнок)
+    processAge(null) // Ошибка: Возраст не указан
+    processAge("abc") // Ошибка: 'abc' не является числом
+    processAge("200") // Ошибка: Возраст не может быть больше 150
 }
