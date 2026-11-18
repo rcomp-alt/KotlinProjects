@@ -18,8 +18,14 @@ text
 
 Пиши — разберем! 😊*/
 
-fun printMultiplicationTable(n: Int, max: Int = 10) {
+/*fun printMultiplicationTable(n: Int, max: Int = 10) {
     for (i in 1..max) {
+        println("$n x $i = ${n * i}")
+    }
+}*/
+
+fun printMultiplicationTable(n: Int, max: Int = 10 ) {
+    (1..max).forEach { i ->
         println("$n x $i = ${n * i}")
     }
 }

@@ -1,0 +1,35 @@
+class Library {
+    private val books = mutableListOf<Book>()
+    
+    fun borrowBook(title: String) {
+        val book = books.find { it.title == title }
+            ?: throw NoSuchElementException("Книга '$title' не найдена")
+        
+        if (book.status != BookStatus.AVAILABLE) {
+            throw IllegalStateException("Книга '${book.title}' недоступна")
+        }
+        
+        book.status = BookStatus.BORROWED
+        println("Книга '${book.title}' выдана")
+    }
+}
+Вопросы:
+
+    Что делает books.find { ... } ?: throw ...?
+
+    Почему ?: после find?
+
+    Что будет, если книга уже выдана?
+
+    Что будет, если книга не найдена?
+
+    Зачем book.status = BookStatus.BORROWED?
+
+
+
+1. Ищет книгу по предикту(названию) и если находит присваивает локальной val book, нет то выбрасывает исключение NoSuchElementException
+2. Потому что find вернет null, если не найдет книгу по названию. 
+3. Напечатает "Книга '${book.title}' выдана"
+4. Выбросит исключение NoSuchElementException("Книга '$title' не найдена")
+5. Меняет статус книги
+

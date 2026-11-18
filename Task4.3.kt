@@ -96,7 +96,7 @@ fun calculateDiscount(amount: Double, isRegular: Boolean = false): Double {
         amount > 1000 -> 0.03
         else -> 0.0
     }
-    return (1 - discount) * amount
+    return amount * (1 - discount)
 }
 
 fun calculateTotal(amount: Double, isRegular: Boolean, hasPromoCode: Boolean): Double {
@@ -124,10 +124,17 @@ fun main() {
     println(calculateDiscount(500.0, false))   // 500.0 (скидка 0%)
 }*/
 
-fun main() {
+/*fun main() {
     printReceipt(12000.0, isRegular = true, hasPromoCode = true)
     // Сумма: 12000.0, Итог: 9690.0, Тип: Средний заказ
 
     printReceipt(800.0, isRegular = false, hasPromoCode = false)
     // Сумма: 800.0, Итог: 800.0, Тип: Малый заказ
+}*/
+
+fun main() {
+    println(calculateDiscount(1200.0, true))   // 1020.0
+    println(calculateDiscount(800.0, true))    // 760.0
+    println(calculateDiscount(1200.0, false))  // 1164.0
+    println(calculateDiscount(500.0, false))   // 500.0
 }
